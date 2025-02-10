@@ -1,18 +1,19 @@
-<Window
-    x:Class="NovaApp.Views.MainWindow"
+<win:AppWindow
+    x:Class="NovaApp.MainWindow"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="using:NovaApp.ViewModels"
-    Title="NovaApp"
+    xmlns:markupExtensions="using:FluentIcons.Avalonia.Fluent.MarkupExtensions"
+    xmlns:win="using:FluentAvalonia.UI.Windowing"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"             
+    xmlns:vmods="using:NovaApp.ViewModels"
+    xmlns:views="using:NovaApp.Views"
+    xmlns:pages="using:NovaApp.Pages"
+    Title="Nova App"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    x:DataType="vm:MainWindowViewModel"
-    Background="Black"
-    Icon="/Assets/avalonia-logo.ico"
     mc:Ignorable="d">
-    <Design.DataContext>
-        <vm:MainWindowViewModel />
-    </Design.DataContext>
-</Window>
+    <views:MainView />
+</win:AppWindow>
+

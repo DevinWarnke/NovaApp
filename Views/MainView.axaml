@@ -1,0 +1,37 @@
+<UserControl 
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:markupExtensions="using:FluentIcons.Avalonia.Fluent.MarkupExtensions"
+    xmlns:win="using:FluentAvalonia.UI.Windowing"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"             
+    xmlns:vmods="using:NovaApp.ViewModels"
+    xmlns:views="using:NovaApp.Views"
+    xmlns:pages="using:NovaApp.Pages"
+    mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+    x:Class="NovaApp.Views.MainView"
+    x:DataType="vmods:MainViewViewModel"
+    x:CompileBindings="True">
+    
+    <ui:NavigationView x:Name="MainViewNavView" PaneTitle="Title" Margin="0,-6,0,-10" ZIndex="2" PaneDisplayMode="LeftCompact" IsSettingsVisible="True" AlwaysShowHeader="False" Background="{DynamicResource SolidBackgroundFillColorQuarternary}">
+        <ui:NavigationView.Resources>
+            <!-- ReSharper disable Xaml.RedundantResource -->
+            <CornerRadius x:Key="NavigationViewContentGridCornerRadius">0</CornerRadius>
+            <SolidColorBrush x:Key="NavigationViewContentBackground" Color="{DynamicResource SolidBackgroundFillColorQuarternary}"/>
+            <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="{DynamicResource SolidBackgroundFillColorBase}"/>
+            <!-- ReSharper restore Xaml.RedundantResource -->
+        </ui:NavigationView.Resources>
+        <ui:NavigationView.MenuItems>
+            <ui:NavigationViewItem IsHitTestVisible="True" Content="Home" Tag="HomePage" IsSelected="True" IconSource="{markupExtensions:SymbolIconSourceExtension Symbol=Home}" />
+            <ui:NavigationViewItem IsHitTestVisible="True" Content="Connections" Tag="ConnectionsPage" IconSource="{markupExtensions:SymbolIconSourceExtension Symbol=PlugConnected}"/>
+            <ui:NavigationViewItem IsHitTestVisible="True" Content="Explorer" Tag="ExplorerPage" IconSource="{markupExtensions:SymbolIconSourceExtension Symbol=Folder}"/>
+            <ui:NavigationViewItem IsHitTestVisible="True" Content="Game Services" IconSource="{markupExtensions:SymbolIconSourceExtension Symbol=XboxController}" SelectsOnInvoked="False">
+                <ui:NavigationViewItem.MenuItems>
+                    <ui:NavigationViewItem IsHitTestVisible="True" Content="Steam" Tag="SteamPage" IconSource="{markupExtensions:SymbolIconSourceExtension Symbol=XboxController}" SelectsOnInvoked="False"/>
+                    <ui:NavigationViewItem IsHitTestVisible="True" Content="Epic" Tag="EpicPage" IconSource="{markupExtensions:SymbolIconSourceExtension Symbol=XboxController}" SelectsOnInvoked="False"/>
+                </ui:NavigationViewItem.MenuItems>
+            </ui:NavigationViewItem>
+        </ui:NavigationView.MenuItems>
+    </ui:NavigationView>
+</UserControl>

@@ -1,13 +1,18 @@
-using Avalonia.Controls;
-using NovaApp.ViewModels;
+using FluentAvalonia.UI.Windowing;
 
-namespace NovaApp.Views
+namespace NovaApp
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : AppWindow
     {
         public MainWindow()
         {
             InitializeComponent();
         }
     }
+
+    public class AppWindowTitleBar
+    {
+        
+    }
 }
+

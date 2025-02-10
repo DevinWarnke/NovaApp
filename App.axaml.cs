@@ -1,15 +1,13 @@
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using NovaApp.ViewModels;
-using NovaApp.Views;
 
 namespace NovaApp
 {
-    public partial class App : Application
+    public class App : Application
     {
         public override void Initialize()
         {
@@ -27,6 +25,8 @@ namespace NovaApp
                 {
                     DataContext = new MainWindowViewModel(),
                 };
+                //desktop.MainWindow.ExtendClientAreaToDecorationsHint = true;
+                //desktop.MainWindow.ExtendClientAreaChromeHints = Avalonia.Platform.ExtendClientAreaChromeHints.NoChrome;
             }
 
             base.OnFrameworkInitializationCompleted();
