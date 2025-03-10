@@ -9,6 +9,5 @@ public partial class MainWindow : AppWindow
 	{
 		InitializeComponent();
 		DataContext = new MainWindowViewModel();
-		this.AttachDevTools();
 	}
 }
