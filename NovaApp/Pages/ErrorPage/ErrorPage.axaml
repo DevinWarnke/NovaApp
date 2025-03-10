@@ -1,0 +1,25 @@
+<!--*
+// Error Page
+// Creates the UI elements and Bindings to the viewmodel
+// This shouldn't be possible to reach, but if for whatever reason it is, this page will be displayed.
+// ToDo: Better comments and documentation
+// ToDo: Get rid of this...
+-->
+
+<UserControl 
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	
+	mc:Ignorable="d" 
+	
+	d:DesignWidth="1280" 
+	d:DesignHeight="720"
+	
+	x:CompileBindings="True"
+	x:Class="NovaApp.Pages.ErrorPage.ErrorPage">
+	
+	<Label Content="Page not found." HorizontalAlignment="Center" VerticalAlignment="Center"/>
+</UserControl>
+

@@ -1,0 +1,44 @@
+<UserControl 
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+	xmlns:fa-Controls="using:FluentAvalonia.UI.Controls"
+	xmlns:fi-MarkupExtensions="using:FluentIcons.Avalonia.Fluent.MarkupExtensions"
+	xmlns:main="clr-namespace:NovaApp.Main"
+
+	mc:Ignorable="d" 
+	
+	d:DesignWidth="1280" 
+	d:DesignHeight="720"
+	
+	x:CompileBindings="True"
+	x:Class="NovaApp.Main.MainView"
+	x:DataType="main:MainViewModel">
+	
+	<Design.DataContext>
+		<main:MainViewModel />
+	</Design.DataContext>
+	
+	<fa-Controls:NavigationView AlwaysShowHeader="False" Background="{DynamicResource SolidBackgroundFillColorQuarternary}" Content="{Binding CurrentPage}" IsSettingsVisible="True" Margin="0,-6,0,-10" PaneDisplayMode="LeftCompact" PaneTitle="Nova App" SelectedItem="{Binding SelectedPage}" ZIndex="2" x:Name="MainViewNavView">
+		<fa-Controls:NavigationView.Resources>
+			<!-- ReSharper disable Xaml.RedundantResource -->
+			<CornerRadius x:Key="NavigationViewContentGridCornerRadius">0</CornerRadius>
+			<SolidColorBrush x:Key="NavigationViewContentBackground" Color="{DynamicResource SolidBackgroundFillColorQuarternary}"/>
+			<SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="{DynamicResource SolidBackgroundFillColorBase}"/>
+			<!-- ReSharper restore Xaml.RedundantResource -->
+		</fa-Controls:NavigationView.Resources>
+		<fa-Controls:NavigationView.MenuItems>
+			<fa-Controls:NavigationViewItem Content="Connections" IconSource="{fi-MarkupExtensions:SymbolIconSourceExtension Symbol=PlugConnected}" IsSelected="True" Tag="ConnectionsPage"/>
+			<fa-Controls:NavigationViewItem Content="Explorer" IconSource="{fi-MarkupExtensions:SymbolIconSourceExtension Symbol=Folder}" IsHitTestVisible="True" Tag="ExplorerPage"/>
+			<fa-Controls:NavigationViewItem Content="Host" IconSource="{fi-MarkupExtensions:SymbolIconSourceExtension Symbol=Question}" Tag="HostPage" />
+			<fa-Controls:NavigationViewItem Content="Game Services" IconSource="{fi-MarkupExtensions:SymbolIconSourceExtension Symbol=XboxController}" IsHitTestVisible="True" SelectsOnInvoked="False">
+				<fa-Controls:NavigationViewItem.MenuItems>
+					<fa-Controls:NavigationViewItem Content="Steam" IconSource="{fi-MarkupExtensions:SymbolIconSourceExtension Symbol=XboxController}" IsHitTestVisible="True" SelectsOnInvoked="False" Tag="SteamPage"/>
+					<fa-Controls:NavigationViewItem Content="Epic" IconSource="{fi-MarkupExtensions:SymbolIconSourceExtension Symbol=XboxController}" IsHitTestVisible="True" SelectsOnInvoked="False" Tag="EpicPage"/>
+				</fa-Controls:NavigationViewItem.MenuItems>
+			</fa-Controls:NavigationViewItem>
+		</fa-Controls:NavigationView.MenuItems>
+	</fa-Controls:NavigationView>
+</UserControl>
