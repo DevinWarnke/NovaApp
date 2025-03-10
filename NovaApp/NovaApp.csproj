@@ -1,0 +1,122 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>preview</LangVersion>
+		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+	</PropertyGroup>
+	
+	
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+	  <DefineConstants>$(DefineConstants);ENABLE_XAML_HOT_RELOAD</DefineConstants>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\**"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia"/>
+		<PackageReference Include="Avalonia.AvaloniaEdit" />
+		<PackageReference Include="Avalonia.Themes.Fluent"/>
+		<PackageReference Include="Avalonia.Fonts.Inter"/>
+		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+		<PackageReference Include="Avalonia.Diagnostics">
+			<IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+			<PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Avalonia.Xaml.Behaviors" />
+		<PackageReference Include="CommunityToolkit.Mvvm"/>
+		<PackageReference Include="DynamicData" />
+		<PackageReference Include="FluentAvaloniaUI" />
+		<PackageReference Include="FluentIcons.Avalonia" />
+		<PackageReference Include="FluentIcons.Avalonia.Fluent" />
+		<PackageReference Include="FluentIcons.Common" />
+		<PackageReference Condition="$(DefineConstants.Contains(ENABLE_XAML_HOT_RELOAD))" Include="Avalonia.Markup.Xaml.Loader"/>
+		  <PackageReference Condition="$(DefineConstants.Contains(ENABLE_XAML_HOT_RELOAD))" Include="HotAvalonia"/>
+		  <PackageReference Include="HotAvalonia.Extensions" PrivateAssets="All" />
+		  <PackageReference Include="MessageBox.Avalonia" />
+		  <PackageReference Include="MessageBox.Avalonia.Markdown" />
+		  <PackageReference Include="Newtonsoft.Json" />
+		  <PackageReference Include="SSH.NET" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <AdditionalFiles Include="Pages\ConnectionsPage\ConnectionsPage.axaml" />
+	  <AdditionalFiles Include="Pages\ErrorPage\ErrorPage.axaml" />
+	  <AdditionalFiles Include="Pages\ExplorerPage\ExplorerPage.axaml" />
+	  <AdditionalFiles Include="Pages\HostPage\HostPage.axaml" />
+	  <AdditionalFiles Include="Pages\SettingsPage\SettingsPage.axaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Main\MainView.axaml.cs">
+	    <DependentUpon>MainView.axaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Main\MainWindow.axaml.cs">
+	    <DependentUpon>MainWindow.axaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\Explorer\CopyMoveWindow.axaml.cs">
+	    <DependentUpon>CopyMoveWindow.axaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\Explorer\FileSearchWindow.axaml.cs">
+	    <DependentUpon>FileSearchWindow.axaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\Explorer\FilesPane.axaml.cs">
+	    <DependentUpon>FilesPane.axaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\Explorer\OptionsWindow.axaml.cs">
+	    <DependentUpon>OptionsWindow.axaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\Explorer\ProgressWindow.axaml.cs">
+	    <DependentUpon>ProgressWindow.axaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\Explorer\CopyMoveViewModel.cs">
+	    <DependentUpon>CopyMoveWindow.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\Explorer\FileSearchViewModel.cs">
+	    <DependentUpon>FileSearchWindow.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\Explorer\FilesPaneViewModel.cs">
+	    <DependentUpon>FilesPane.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\Explorer\OptionsWindowModel.cs">
+	    <DependentUpon>OptionsWindow.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\Explorer\OptionsWindowViewModel.cs">
+	    <DependentUpon>OptionsWindow.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ExplorerPage\ExplorerPageViewModel.cs">
+	    <DependentUpon>ExplorerPage.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\HostPage\HostPageViewModel.cs">
+	    <DependentUpon>HostPage.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\SettingsPage\SettingsPageViewModel.cs">
+	    <DependentUpon>SettingsPage.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ConnectionsPage\ConnectionsPageViewModel.cs">
+	    <DependentUpon>ConnectionsPage.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ConnectionsPage\ConnectionsPageModel.cs">
+	    <DependentUpon>ConnectionsPage.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Main\MainWindowViewModel.cs">
+	    <DependentUpon>MainWindow.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Main\MainViewModel.cs">
+	    <DependentUpon>MainView.axaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="ThirdPartyLicenses\" />
+	</ItemGroup>
+</Project>

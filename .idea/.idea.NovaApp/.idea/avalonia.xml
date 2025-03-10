@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="NovaApp/App.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Main/MainView.axaml" value="NovaApp.Browser/NovaApp.Browser.csproj" />
+        <entry key="NovaApp/Main/MainWindow.axaml" value="NovaApp.Browser/NovaApp.Browser.csproj" />
+        <entry key="NovaApp/Main/Pages/SettingsPage/SettingsPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ConnectionsPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ConnectionsPage/ConnectionsPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ErrorPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ErrorPage/ErrorPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/Explorer/Views/CopyMoveWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/Explorer/Views/FileSearchWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/Explorer/Views/FilesPane.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/Explorer/Views/MainWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/Explorer/Views/OptionsWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/Explorer/Views/ProgressWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/Explorer/Views/ViewerWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/CopyMoveWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/FileSearchWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/FilesPane.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/OptionsWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/ProgressWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/ViewerWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/Views/CopyMoveWindow.axaml" value="NovaApp.Browser/NovaApp.Browser.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/Views/FileSearchWindow.axaml" value="NovaApp.Browser/NovaApp.Browser.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/Views/FilesPane.axaml" value="NovaApp.Browser/NovaApp.Browser.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/Views/OptionsWindow.axaml" value="NovaApp.Browser/NovaApp.Browser.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/Views/ProgressWindow.axaml" value="NovaApp.Browser/NovaApp.Browser.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/Explorer/Views/ViewerWindow.axaml" value="NovaApp.Browser/NovaApp.Browser.csproj" />
+        <entry key="NovaApp/Pages/ExplorerPage/ExplorerPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/HomePage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/HostPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/HostPage/HostPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/SettingsPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Pages/SettingsPage/SettingsPage.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Views/MainView.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+        <entry key="NovaApp/Views/MainWindow.axaml" value="NovaApp.Desktop/NovaApp.Desktop.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

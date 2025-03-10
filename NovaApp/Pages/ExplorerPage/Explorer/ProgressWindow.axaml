@@ -1,0 +1,62 @@
+<!--* 
+This file is part of SmartCommander.  
+*  
+* Copyright (C) 2022 Anna Novikova 
+*  
+* Licensed under the GNU General Public License version 3 or later.  
+* See the full license in the COPYING file or at <https://www.gnu.org/licenses/>.  
+*  
+* Originally obtained from: https://github.com/anovik/SmartCommander
+*
+* Modified by Devin Warnke on   
+* Changes: Modified to work with .NET Community Toolkit instead of ReactiveUI.
+* Modified to fit style of Nova App design and theming.
+* Removed all backend code of SmartCommander, replaced with all personally written code.
+-->
+
+<!--*
+// Progress Window
+// Creates the UI elements and Bindings to the viewmodel
+// ToDo: Better comments and documentation
+-->
+
+
+<Window
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+	xmlns:av-Edit="using:AvaloniaEdit"
+	xmlns:av-Interactivity="using:Avalonia.Xaml.Interactivity"
+	xmlns:av-Interactions="using:Avalonia.Xaml.Interactions.Core"
+	xmlns:fa-Windowing="using:FluentAvalonia.UI.Windowing"
+	xmlns:novaApp-Assets="using:NovaApp.Assets"
+	xmlns:novaApp-Common="clr-namespace:NovaApp.Common"
+	xmlns:novaApp-ExplorerPage="using:NovaApp.Pages.ExplorerPage"
+	xmlns:novaApp-Explorer="clr-namespace:NovaApp.Pages.ExplorerPage.Explorer"
+
+	mc:Ignorable="d" 
+
+	d:DesignWidth="400" 
+	d:DesignHeight="150"
+	WindowStartupLocation="CenterOwner"
+	Topmost="False"
+	CanResize="False"
+	ShowInTaskbar="True"
+	x:CompileBindings="True"
+	x:Class="NovaApp.Pages.ExplorerPage.Explorer.ProgressWindow">
+	
+	<StackPanel Margin="20">
+		<TextBlock Text="{x:Static novaApp-Assets:Resources.OperationInProgress}"/>
+		<ContentControl>
+			<ContentControl.Styles>
+				<FluentTheme />
+				<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+				<StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml"/>
+			</ContentControl.Styles>
+			<ProgressBar Height="20" Margin="20" Maximum="100" Minimum="0" Name="ProgressBar" ShowProgressText="True"/>
+		</ContentControl>
+		<Button Content="{x:Static novaApp-Assets:Resources.Cancel}" HorizontalAlignment="Center" Name="CancelButton"/>
+	</StackPanel>
+</Window>

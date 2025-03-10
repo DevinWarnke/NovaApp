@@ -1,0 +1,63 @@
+<!--* 
+This file is part of SmartCommander.  
+*  
+* Copyright (C) 2022 Anna Novikova 
+*  
+* Licensed under the GNU General Public License version 3 or later.  
+* See the full license in the COPYING file or at <https://www.gnu.org/licenses/>.  
+*  
+* Originally obtained from: https://github.com/anovik/SmartCommander
+*
+* Modified by Devin Warnke on   
+* Changes: Modified to work with .NET Community Toolkit instead of ReactiveUI.
+* Modified to fit style of Nova App design and theming.
+* Removed all backend code of SmartCommander, replaced with all personally written code.
+-->
+
+<!--*
+// Copy/Move Window
+// Creates the UI elements and Bindings to the viewmodel
+// ToDo: Better comments and documentation
+// ToDo: Implement Copy/Move visual elements
+// ToDo: Fix visuals to match Nova App design
+-->
+
+
+<fa-Windowing:AppWindow
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+	xmlns:av-Edit="using:AvaloniaEdit"
+	xmlns:av-Interactivity="using:Avalonia.Xaml.Interactivity"
+	xmlns:av-Interactions="using:Avalonia.Xaml.Interactions.Core"
+	xmlns:fa-Windowing="using:FluentAvalonia.UI.Windowing"
+	xmlns:novaApp-Assets="using:NovaApp.Assets"
+	xmlns:novaApp-Common="clr-namespace:NovaApp.Common"
+	xmlns:novaApp-ExplorerPage="using:NovaApp.Pages.ExplorerPage"
+	xmlns:novaApp-Explorer="clr-namespace:NovaApp.Pages.ExplorerPage.Explorer"
+
+	mc:Ignorable="d" 
+
+	d:DesignWidth="600" 
+	d:DesignHeight="400"
+
+	x:CompileBindings="True"
+	x:Class="NovaApp.Pages.ExplorerPage.Explorer.CopyMoveWindow"
+	x:DataType="novaApp-Explorer:CopyMoveViewModel">
+	
+	<Design.DataContext>
+		<novaApp-Explorer:CopyMoveViewModel/>
+	</Design.DataContext>
+	
+
+	<Grid RowDefinitions="Auto,Auto,Auto">
+		<TextBlock Margin="10" Text="{Binding CopyText}" TextWrapping="Wrap"></TextBlock>
+		<TextBlock Margin="10" Grid.Row="1" Text="{Binding Directory}"></TextBlock>
+		<StackPanel Margin="10" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+			<Button Margin="5" Command="{Binding OkCommand}"  CommandParameter="{Binding $parent}" Content="{x:Static novaApp-Assets:Resources.OK}" IsDefault="True"/>
+			<Button Margin="5" Command="{Binding CancelCommand}"  CommandParameter="{Binding $parent}" Content="{x:Static novaApp-Assets:Resources.Cancel}" IsCancel="True"/>
+		</StackPanel>
+	</Grid>
+</fa-Windowing:AppWindow>
