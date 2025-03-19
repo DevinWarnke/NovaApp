@@ -1,0 +1,103 @@
+<!--* 
+This file is part of SmartCommander.  
+*  
+* Copyright (C) 2022 Anna Novikova 
+*  
+* Licensed under the GNU General Public License version 3 or later.  
+* See the full license in the COPYING file or at <https://www.gnu.org/licenses/>.  
+*  
+* Originally obtained from: https://github.com/anovik/SmartCommander
+*
+* Modified by Devin Warnke on   
+* Changes: Modified to work with .NET Community Toolkit instead of ReactiveUI.
+* Modified to fit style of Nova App design and theming.
+* Removed all backend code of SmartCommander, replaced with all personally written code.
+-->
+
+<!--*
+// Options Window
+// Creates the UI elements and Bindings to the viewmodel
+// ToDo: Better comments and documentation
+// ToDo: Add missing settings for Files Pane
+// ToDo: Rearrange and reorganize the settings to be more user-friendly
+-->
+
+
+<fa-Windowing:AppWindow
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+	xmlns:av-Edit="using:AvaloniaEdit"
+	xmlns:av-Interactivity="using:Avalonia.Xaml.Interactivity"
+	xmlns:av-Interactions="using:Avalonia.Xaml.Interactions.Core"
+	xmlns:fa-Windowing="using:FluentAvalonia.UI.Windowing"
+	xmlns:fa-ComboBox="using:FluentAvalonia.UI.Controls"
+	xmlns:novaApp-Assets="using:NovaApp.Assets"
+	xmlns:novaApp-Common="clr-namespace:NovaApp.Common"
+	xmlns:novaApp-ExplorerPage="using:NovaApp.Pages.ExplorerPage"
+	xmlns:novaApp-Explorer="clr-namespace:NovaApp.Pages.ExplorerPage.Explorer"
+
+	mc:Ignorable="d" 
+
+	d:DesignWidth="600" 
+	d:DesignHeight="400"
+
+	x:CompileBindings="True"
+	x:Class="NovaApp.Pages.ExplorerPage.Explorer.OptionsWindow"
+	x:DataType="novaApp-Explorer:OptionsWindowViewModel"
+	
+	Title="{x:Static novaApp-Assets:Resources.Options}">
+	
+	<Design.DataContext>
+		<novaApp-Explorer:OptionsWindowViewModel/>
+	</Design.DataContext>
+
+	<Window.Resources>
+		<DataTemplate x:Key="CultureInfoTemplate" x:DataType="novaApp-Explorer:OptionsWindowViewModel">
+			<TextBlock Text="AFAF" />
+		</DataTemplate>
+	</Window.Resources>
+
+	<Grid RowDefinitions="*,Auto">
+		<TabControl TabStripPlacement="Left">
+			<TabItem Header="General">
+				<StackPanel>
+					<CheckBox IsChecked="{Binding DoConfirmDeleteNonEmpty}" Content="Show confirmation when deleting non-empty directory"></CheckBox>
+					<CheckBox IsChecked="{Binding ShowFolderSizes}" Content="Show folder sizes"></CheckBox>
+					<CheckBox IsChecked="{Binding ShowHiddenFiles}" Content="Show hidden files"></CheckBox>
+					<CheckBox IsChecked="{Binding ShowSystemFiles}" Content="Show system files"></CheckBox>
+					<CheckBox IsChecked="{Binding ShowDebugTags}" Content="Show debug tags"></CheckBox>
+					<Grid ColumnDefinitions="Auto, Auto" RowDefinitions="Auto">
+						<fa-ComboBox:FAComboBox Grid.Column="0">
+							<fa-ComboBox:FAComboBoxItem Content="Dark" IsSelected="{Binding IsDarkThemeEnabled}"/>
+							<fa-ComboBox:FAComboBoxItem Content="Light" IsSelected="{Binding !IsDarkThemeEnabled}"/>
+						</fa-ComboBox:FAComboBox>
+						<TextBlock Grid.Column="1" Text="Theme" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+					</Grid>
+					<Grid ColumnDefinitions="Auto, Auto" RowDefinitions="Auto">
+						<ComboBox Grid.Column="0">
+							<ComboBoxItem Content="Dark" IsSelected="{Binding IsDarkThemeEnabled}"/>
+							<ComboBoxItem Content="Light" IsSelected="{Binding !IsDarkThemeEnabled}"/>
+						</ComboBox>
+						<TextBlock Grid.Column="1" Text="Theme" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+					</Grid>
+					<RadioButton IsChecked="{Binding !IsDarkThemeEnabled}" Content="{x:Static novaApp-Assets:Resources.LightTheme}"></RadioButton>
+					<RadioButton IsChecked="{Binding IsDarkThemeEnabled}" Content="{x:Static novaApp-Assets:Resources.DarkTheme}"></RadioButton>
+				</StackPanel>
+			</TabItem>
+			
+			<TabItem Header="Other?">
+
+			</TabItem>
+
+
+		</TabControl>
+		
+		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button Margin="5" Command="{Binding OkCommand}" CommandParameter="{Binding $parent[Window]}" IsDefault="True" Content="{x:Static novaApp-Assets:Resources.Save}"></Button>
+			<Button Margin="5" Command="{Binding CancelCommand}" CommandParameter="{Binding $parent[Window]}" IsCancel="True" Content="{x:Static novaApp-Assets:Resources.Cancel}"></Button>
+		</StackPanel>
+	</Grid>
+</fa-Windowing:AppWindow>

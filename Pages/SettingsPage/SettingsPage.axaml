@@ -1,0 +1,191 @@
+<!--*
+// Settings Page
+// Creates the UI elements and Bindings to the viewmodel
+// ToDo: Better comments and documentation
+// ToDo: Implement page, or combine with Explorer Options Popout??
+-->
+
+<UserControl
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	
+	xmlns:novaApp-SettingsPage="clr-namespace:NovaApp.Pages.SettingsPage"
+	xmlns:av-Edit="using:AvaloniaEdit"
+	xmlns:av-Interactivity="using:Avalonia.Xaml.Interactivity"
+	xmlns:av-Interactions="using:Avalonia.Xaml.Interactions.Core"
+	xmlns:fa-Windowing="using:FluentAvalonia.UI.Windowing"
+	xmlns:fa-Controls="using:FluentAvalonia.UI.Controls"
+	xmlns:novaApp-Assets="using:NovaApp.Assets"
+	xmlns:novaApp-Common="clr-namespace:NovaApp.Common"
+	xmlns:novaApp-ExplorerPage="using:NovaApp.Pages.ExplorerPage"
+	xmlns:novaApp-Explorer="clr-namespace:NovaApp.Pages.ExplorerPage.Explorer"
+    
+	mc:Ignorable="d" 
+	
+	d:DesignWidth="1280" 
+	d:DesignHeight="720"
+	
+	x:CompileBindings="True"
+	x:Class="NovaApp.Pages.SettingsPage.SettingsPage"
+	x:DataType="novaApp-SettingsPage:SettingsPageViewModel">
+	
+	<Design.DataContext>
+		<novaApp-SettingsPage:SettingsPageViewModel/>
+	</Design.DataContext>
+	
+	<ScrollViewer Padding="10" Background="{DynamicResource SolidBackgroundFillColorPrimary}">
+		<StackPanel Spacing="8" Background="{DynamicResource SolidBackgroundFillColorPrimary}">
+			<Panel Margin="0 0 0 5" Background="{DynamicResource SolidBackgroundFillColorPrimary}">
+				<Grid ColumnDefinitions="Auto, *" HorizontalAlignment="Left" IsVisible="True">
+					<Grid ColumnDefinitions="Auto, 4, Auto" RowDefinitions="Auto, Auto, Auto, Auto">
+						<Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Height="96" Source="/Assets/Test.png"/>
+						<Label Content="{Binding AppName}"                      Grid.Row="0" Grid.Column="2" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 2" FontSize="26" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="0, 0, 0, 3" Padding="3, -2" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+						<Label Content="{Binding AppVersion}"                   Grid.Row="1" Grid.Column="2" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 1" FontSize="13" FontWeight="Light"    HorizontalAlignment="Left" Margin="0, 0, 0, 3" Padding="3, 0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+						<Label Content="GPL v3.0 License"                       Grid.Row="2" Grid.Column="2" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 1" FontSize="13" FontWeight="Light"    HorizontalAlignment="Left" Margin="0, 0, 0, 3" Padding="3, 0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+						<Label Content="https://github.com/DevinWarnke/NovaApp" Grid.Row="3" Grid.Column="2" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 1" FontSize="13" FontWeight="Light"    HorizontalAlignment="Left" Margin="0, 0, 0, 3" Padding="3, 0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+					</Grid>
+				</Grid>
+				<Grid ColumnDefinitions="Auto, *" HorizontalAlignment="Right" IsVisible="False">
+					<Grid ColumnDefinitions="Auto, 4, Auto" RowDefinitions="Auto, Auto, Auto, Auto">
+						<Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Height="125" Source="/Assets/Test.png"/>
+						<Label Content="Avalonia"                               Grid.Row="0" Grid.Column="2" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 2" FontSize="26" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="0, 0, 0, 3" Padding="3, -2" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+						<Label Content="{Binding AvaloniaVersion}"              Grid.Row="1" Grid.Column="2" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 1" FontSize="13" FontWeight="Light"    HorizontalAlignment="Left" Margin="0, 0, 0, 3" Padding="3, 0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+						<Label Content="MIT License"                            Grid.Row="2" Grid.Column="2" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 1" FontSize="13" FontWeight="Light"    HorizontalAlignment="Left" Margin="0, 0, 0, 3" Padding="3, 0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+						<Label Content="https://github.com/DevinWarnke/NovaApp" Grid.Row="3" Grid.Column="2" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 1" FontSize="13" FontWeight="Light"    HorizontalAlignment="Left" Margin="0, 0, 0, 3" Padding="3, 0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+					</Grid>
+				</Grid>
+				<Grid ColumnDefinitions="Auto, *" HorizontalAlignment="Right" IsVisible="False">
+					<Grid ColumnDefinitions="Auto, 4, Auto" RowDefinitions="Auto, Auto, Auto, Auto">
+						<Label Content="Avalonia"                               Grid.Row="0" Grid.Column="0" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 2" FontSize="26" FontWeight="SemiBold" HorizontalAlignment="Right" Margin="0, 0, 0, 3" Padding="3, -2" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+						<Label Content="{Binding AvaloniaVersion}"              Grid.Row="1" Grid.Column="0" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 1" FontSize="13" FontWeight="Light"    HorizontalAlignment="Right" Margin="0, 0, 0, 3" Padding="3, 0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+						<Label Content="MIT License"                            Grid.Row="2" Grid.Column="0" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 1" FontSize="13" FontWeight="Light"    HorizontalAlignment="Right" Margin="0, 0, 0, 3" Padding="3, 0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+						<Label Content="https://github.com/DevinWarnke/NovaApp" Grid.Row="3" Grid.Column="0" BorderBrush="{DynamicResource AccentTextFillColorPrimaryBrush}" BorderThickness="0, 0, 0, 1" FontSize="13" FontWeight="Light"    HorizontalAlignment="Right" Margin="0, 0, 0, 3" Padding="3, 0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+						<Image Grid.Row="0" Grid.Column="2" Grid.RowSpan="4" Height="125" Source="/Assets/Test.png"/>
+					</Grid>
+				</Grid>
+			</Panel>
+			
+			<fa-Controls:SettingsExpander Description="Theme, Accent colors." Header="Display Settings" IconSource="???" IsExpanded="True">
+				<fa-Controls:SettingsExpanderItem Content="App Color Theme" Description="Set the applications theme color.">
+					<fa-Controls:SettingsExpanderItem.Footer>
+						<fa-Controls:FAComboBox ItemsSource="{Binding AppColorThemes}" SelectedItem="{Binding AppColorTheme}" MinWidth="100"/>
+					</fa-Controls:SettingsExpanderItem.Footer>
+				</fa-Controls:SettingsExpanderItem>
+				
+				<fa-Controls:SettingsExpanderItem Content="App Theme" Description="Set the applications theme.">
+					<fa-Controls:SettingsExpanderItem.Footer>
+						<fa-Controls:FAComboBox ItemsSource="{Binding AppThemes}" SelectedItem="{Binding AppTheme}" MinWidth="100"/>
+					</fa-Controls:SettingsExpanderItem.Footer>
+				</fa-Controls:SettingsExpanderItem>
+				
+				<fa-Controls:SettingsExpander Description="Accent colors." Header="Accent Settings" IsExpanded="True">
+					<fa-Controls:SettingsExpander.Resources>
+						
+					</fa-Controls:SettingsExpander.Resources>	
+					<fa-Controls:SettingsExpander.Footer>
+						<fa-Controls:FAComboBox ItemsSource="{Binding AppAccentColorSelections}" SelectedItem="{Binding AppAccentColorSelection}" MinWidth="100"/>
+					</fa-Controls:SettingsExpander.Footer>
+					
+					<fa-Controls:SettingsExpanderItem Content="Accent Color" Description="Set the applications accent color.">
+						<fa-Controls:SettingsExpanderItem.Footer>
+							<ToggleSwitch/>
+						</fa-Controls:SettingsExpanderItem.Footer>
+					</fa-Controls:SettingsExpanderItem>
+					
+				</fa-Controls:SettingsExpander>
+				
+				<fa-Controls:SettingsExpanderItem Content="Accent Color" Description="Set the applications theme.">
+					<fa-Controls:SettingsExpanderItem.Footer>
+						<fa-Controls:FAComboBox ItemsSource="{Binding AppAccentColorSelections}" SelectedItem="{Binding AppAccentColorSelection}" MinWidth="100"/>
+					</fa-Controls:SettingsExpanderItem.Footer>
+				</fa-Controls:SettingsExpanderItem>
+				
+			</fa-Controls:SettingsExpander>
+			
+			<fa-Controls:SettingsExpander Description="File display toggles, Folder toggles." Header="File Settings" IconSource="???">
+				<fa-Controls:SettingsExpanderItem Content="Show Folder Sizes" Description="Display and calculate sizes of entire directories.">
+					<fa-Controls:SettingsExpanderItem.Footer>
+						<ToggleSwitch IsEnabled="{Binding ShowFolderSizes}"/>
+					</fa-Controls:SettingsExpanderItem.Footer>
+				</fa-Controls:SettingsExpanderItem>
+				
+				<fa-Controls:SettingsExpanderItem Content="Show Hidden Files" Description="Display hidden files.">
+					<fa-Controls:SettingsExpanderItem.Footer>
+						<ToggleSwitch IsEnabled="{Binding ShowHiddenFiles}"/>
+					</fa-Controls:SettingsExpanderItem.Footer>
+				</fa-Controls:SettingsExpanderItem>
+				
+				<fa-Controls:SettingsExpanderItem Content="Show System Files" Description="Display system files.">
+					<fa-Controls:SettingsExpanderItem.Footer>
+						<ToggleSwitch IsEnabled="{Binding ShowSystemFiles}"/>
+					</fa-Controls:SettingsExpanderItem.Footer>
+				</fa-Controls:SettingsExpanderItem>
+				
+				<fa-Controls:SettingsExpanderItem Content="Confirm Non-Empty Deletion" Description="Ask confirmation when deleting non-empty directories.">
+					<fa-Controls:SettingsExpanderItem.Footer>
+						<ToggleSwitch IsEnabled="{Binding DoConfirmDeleteNonEmpty}"/>
+					</fa-Controls:SettingsExpanderItem.Footer>
+				</fa-Controls:SettingsExpanderItem>
+			</fa-Controls:SettingsExpander>
+			
+			<fa-Controls:SettingsExpander Description="Debug options." Header="Debug Settings" IconSource="???">
+				<fa-Controls:SettingsExpanderItem Content="Show Debug Tags" Description="Show file explorer debug tags.">
+					<fa-Controls:SettingsExpanderItem.Footer>
+						<ToggleSwitch IsEnabled="{Binding ShowDebugTags}"/>
+					</fa-Controls:SettingsExpanderItem.Footer>
+				</fa-Controls:SettingsExpanderItem>
+			</fa-Controls:SettingsExpander>
+			
+			<fa-Controls:SettingsExpander Description="Credits, Source, Dependencies, License" Header="New About" IconSource="???">
+				<fa-Controls:SettingsExpanderItem Content="Show Debug Tags" Description="Show file explorer debug tags.">
+					<fa-Controls:SettingsExpanderItem.Footer>
+						<ToggleSwitch IsEnabled="{Binding ShowDebugTags}"/>
+					</fa-Controls:SettingsExpanderItem.Footer>
+				</fa-Controls:SettingsExpanderItem>
+			</fa-Controls:SettingsExpander>
+			
+			<fa-Controls:SettingsExpander Header="Old About" IconSource="Icon">
+				<fa-Controls:SettingsExpanderItem Content="Found a bug? Want a new feature, control, or sample?" ActionIconSource="Open" IsClickEnabled="True" Name="LaunchRepoLinkItem"/>
+				<fa-Controls:SettingsExpanderItem Content="Clone FluentAvalonia repository">
+					<fa-Controls:SettingsExpanderItem.Footer>
+						<SelectableTextBlock Text="git clone https://github.com/amwx/FluentAvalonia" />
+					</fa-Controls:SettingsExpanderItem.Footer>
+				</fa-Controls:SettingsExpanderItem>
+				<fa-Controls:SettingsExpanderItem>
+					<StackPanel Spacing="4">
+						<TextBlock Text="Dependencies" />
+						<TextBlock TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}">
+							<Run>All resources, brushes, and control naming come from the WinUI repository (https://github.com/microsoft/microsoft-ui-xaml) which is licensed under the MIT license.</Run>
+							<LineBreak/>
+							<LineBreak/>
+							<Run>Avalonia is licensed under the MIT license</Run>
+							<LineBreak/>
+							<LineBreak/>
+							<Run>Both Avalonia and WinUI are not affiliated with and do not endorse FluentAvalonia.</Run>
+							<LineBreak/>
+							<LineBreak/>
+							<Run>Main page header image created using https://www.freepik.com/free-vector/paper-style-white-monochrome-background_15628815.htm</Run>
+						</TextBlock>
+					</StackPanel>
+				</fa-Controls:SettingsExpanderItem>
+				<fa-Controls:SettingsExpanderItem>
+					<StackPanel Spacing="4">
+						<TextBlock Text="License"/>
+						<TextBlock TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}">
+							<Run>FluentAvalonia is licensed under the MIT license.</Run>
+							<LineBreak/>
+							<Run>FAControlsGallery © amwx 2023</Run>
+							<LineBreak/>
+							<LineBreak/>
+							<Run>THIS CODE AND INFORMATION IS PROVIDED ‘AS IS’ WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.</Run>
+							<LineBreak/>
+							<Run>For full MIT license, please see the license.md file</Run>
+						</TextBlock>
+					</StackPanel>
+				</fa-Controls:SettingsExpanderItem>
+			</fa-Controls:SettingsExpander>
+		</StackPanel>
+	</ScrollViewer>
+</UserControl>

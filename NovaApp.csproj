@@ -1,0 +1,189 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- Properties -->
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>preview</LangVersion>
+		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+		<Nullable>enable</Nullable>
+		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+	</PropertyGroup>
+
+	<!-- Debug Condition -->
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+		<DefineConstants>$(DefineConstants);ENABLE_XAML_HOT_RELOAD</DefineConstants>
+	</PropertyGroup>
+
+	<!-- Package References -->
+	<ItemGroup>
+		<PackageReference Include="Avalonia"/>
+		<PackageReference Include="Avalonia.AvaloniaEdit"/>
+		<PackageReference Include="Avalonia.Controls.ColorPicker"/>
+		<PackageReference Include="Avalonia.Controls.DataGrid"/>
+		<PackageReference Include="Avalonia.Desktop"/>
+		<PackageReference Include="Avalonia.Diagnostics"/>
+		<PackageReference Include="Avalonia.Fonts.Inter"/>
+		<PackageReference Include="Avalonia.MarkupExtension"/>
+		<PackageReference Include="Avalonia.Themes.Fluent"/>
+		<PackageReference Include="Avalonia.Themes.Simple"/>
+		<PackageReference Include="Avalonia.Xaml.Behaviors"/>
+		<PackageReference Include="Avalonia.Xaml.Interactions"/>
+		<PackageReference Include="Avalonia.Xaml.Interactivity"/>
+		<PackageReference Include="CommunityToolkit.Mvvm"/>
+		<PackageReference Include="FluentAvaloniaUI"/>
+		<PackageReference Include="FluentIcons.Avalonia"/>
+		<PackageReference Include="FluentIcons.Avalonia.Fluent"/>
+		<PackageReference Include="FluentIcons.Common"/>
+		<PackageReference Include="Material.Avalonia"/>
+		<PackageReference Include="MessageBox.Avalonia"/>
+		<PackageReference Include="MessageBox.Avalonia.Markdown"/>
+		<PackageReference Include="Microsoft.NET.ILLink.Tasks"/>
+		<PackageReference Include="Newtonsoft.Json"/>
+		<PackageReference Include="Semi.Avalonia"/>
+		<PackageReference Include="SSH.NET"/>
+		<PackageReference Include="System.CodeDom"/>
+		<PackageReference Include="System.Linq.Dynamic.Core"/>
+	</ItemGroup>
+	
+	<!-- Avalonia -->
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\**"/>
+	</ItemGroup>
+
+	<!-- Hot AValonia -->
+	<ItemGroup>
+		<PackageReference Condition="$(DefineConstants.Contains(ENABLE_XAML_HOT_RELOAD))" Include="Avalonia.Markup.Xaml.Loader" Version="$(AvaloniaVersion)"/>
+		<PackageReference Condition="$(DefineConstants.Contains(ENABLE_XAML_HOT_RELOAD))" Include="HotAvalonia"/>
+		<PackageReference Include="HotAvalonia.Extensions" PrivateAssets="All"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="Main\MainView.axaml"/>
+		<AdditionalFiles Include="Main\MainWindow.axaml"/>
+		<AdditionalFiles Include="Pages\ConnectionsPage\ConnectionsPage.axaml"/>
+		<AdditionalFiles Include="Pages\ErrorPage\ErrorPage.axaml"/>
+		<AdditionalFiles Include="Pages\ExplorerPage\ExplorerPage.axaml"/>
+		<AdditionalFiles Include="Pages\HostPage\HostPage.axaml"/>
+		<AdditionalFiles Include="Pages\SettingsPage\SettingsPage.axaml"/>
+		
+		<AdditionalFiles Include="Pages\ExplorerPage\Explorer\CopyMoveWindow.axaml"/>
+		<AdditionalFiles Include="Pages\ExplorerPage\Explorer\FileSearchWindow.axaml"/>
+		<AdditionalFiles Include="Pages\ExplorerPage\Explorer\FilesPane.axaml"/>
+		<AdditionalFiles Include="Pages\ExplorerPage\Explorer\OptionsWindow.axaml"/>
+		<AdditionalFiles Include="Pages\ExplorerPage\Explorer\ProgressWindow.axaml"/>
+		<AdditionalFiles Remove="ThirdPartyLicenses\**"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Main\MainView.axaml.cs">
+			<DependentUpon>MainView.axaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+		
+		<Compile Update="Main\MainWindow.axaml.cs">
+			<DependentUpon>MainWindow.axaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\Explorer\CopyMoveWindow.axaml.cs">
+			<DependentUpon>CopyMoveWindow.axaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\Explorer\FileSearchWindow.axaml.cs">
+			<DependentUpon>FileSearchWindow.axaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\Explorer\FilesPane.axaml.cs">
+			<DependentUpon>FilesPane.axaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\Explorer\OptionsWindow.axaml.cs">
+			<DependentUpon>OptionsWindow.axaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\Explorer\ProgressWindow.axaml.cs">
+			<DependentUpon>ProgressWindow.axaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\Explorer\CopyMoveViewModel.cs">
+			<DependentUpon>CopyMoveWindow.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\Explorer\FileSearchViewModel.cs">
+			<DependentUpon>FileSearchWindow.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\Explorer\FilesPaneViewModel.cs">
+			<DependentUpon>FilesPane.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\Explorer\OptionsWindowModel.cs">
+			<DependentUpon>OptionsWindow.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\Explorer\OptionsWindowViewModel.cs">
+			<DependentUpon>OptionsWindow.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Pages\ExplorerPage\ExplorerPageViewModel.cs">
+			<DependentUpon>ExplorerPage.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Pages\HostPage\HostPageViewModel.cs">
+			<DependentUpon>HostPage.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Pages\SettingsPage\SettingsPageViewModel.cs">
+			<DependentUpon>SettingsPage.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Pages\ConnectionsPage\ConnectionsPageViewModel.cs">
+			<DependentUpon>ConnectionsPage.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Pages\ConnectionsPage\ConnectionsPageModel.cs">
+			<DependentUpon>ConnectionsPage.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Main\MainWindowViewModel.cs">
+			<DependentUpon>MainWindow.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Update="Main\MainViewModel.cs">
+			<DependentUpon>MainView.axaml</DependentUpon>
+		</Compile>
+		
+		<Compile Remove="ThirdPartyLicenses\**"/>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove=".gitignore"/>
+	  <None Remove="Directory.Packages.props"/>
+	  <None Remove="SmartCommander.md"/>
+	  <None Remove=".gitattributes"/>
+	  <None Remove="COPYING.md"/>
+	  <None Remove="app.manifest"/>
+	  <None Remove="LICENSE.md"/>
+	  <None Remove="ThirdPartyLicenses\**"/>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AvaloniaXaml Remove="ThirdPartyLicenses\**"/>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Remove="ThirdPartyLicenses\**"/>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AvaloniaResource Remove="ThirdPartyLicenses\**"/>
+	</ItemGroup>
+</Project>
